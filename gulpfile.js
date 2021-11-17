@@ -27,7 +27,7 @@ gulp.task("download", function () {
 gulp.task(
   "v1",
   gulp.series("download", function () {
-    gulp
+    return gulp
       .src("api/KEN_ALL_ROME.CSV")
       .pipe(postal2json())
       .pipe(v1())
@@ -42,7 +42,7 @@ gulp.task(
 gulp.task(
   "v1-jigyosyo",
   gulp.series("download", function () {
-    gulp
+    return gulp
       .src("api/JIGYOSYO.CSV")
       .pipe(jigyosyo2json())
       .pipe(v1())
