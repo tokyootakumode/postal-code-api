@@ -42,7 +42,6 @@ gulp.task(
 gulp.task(
   "v1-jigyosyo",
   gulp.series("download", function () {
-    gulp;
     return gulp
       .src("api/JIGYOSYO.CSV")
       .pipe(jigyosyo2json())
