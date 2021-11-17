@@ -1,24 +1,37 @@
 name: update
 on:
+  push:
+    branch:
+      - *
   schedule:
     - cron: "0 0 * * *"
 jobs:
-  update-data:
-    uns-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - run: set -e
-      - run: npm install
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
       - run: npm run build
-      - run: rm -fr .git
-      - run: rm -f .gitignore
-      - run: git init
-      - run: git config user.name $GIT_USER
-      - run: git config user.email $GIT_EMAIL
-      - run: git add README.md
-      - run: touch .nojekyll
-      - run: git add .nojekyll
-      - run: cp example/index.html ./
-      - run: git add index.html
-      - run: git add .github/workflows/update.yml
-      - run: git commit --quiet -m "Deploy from git action"
-      - run: git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./lib
