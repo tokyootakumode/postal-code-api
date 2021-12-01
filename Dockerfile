@@ -92,8 +92,10 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   # smoke test
   && yarn --version
 
+COPY index.js index.js
+COPY api/v1 api/v1
 COPY lib lib
 COPY package.json package.json
 RUN npm install --production
 
-CMD [ "node", "lib/index.js"]
+CMD [ "node", "index.js"]
