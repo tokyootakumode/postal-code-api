@@ -3,6 +3,8 @@ services:
   app:
     build: .
     volumes:
-      - .:/myapp
+      - .:/home/node/app
+      - /home/node/app/node_modules
+      - /home/node/app/api
     ports:
       - "3000:3000"
