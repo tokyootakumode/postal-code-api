@@ -1,9 +1,10 @@
 FROM node:16.13-buster-slim
 
-COPY index.js index.js
-COPY api/v1 api/v1
+WORKDIR /home/node/app
+COPY index.js .
 COPY lib lib
-COPY package.json package.json
-RUN npm install --production
+COPY package.json .
+COPY gulpfile.js .
+RUN npm install && npm run build && npm prune --production
 
 CMD [ "node", "index.js"]
