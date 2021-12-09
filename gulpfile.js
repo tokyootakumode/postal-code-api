@@ -18,7 +18,7 @@ gulp.task("download", () => {
     .pipe(decompress())
     .pipe(convertEncoding({ from: "shift_jis", to: "utf-8" }))
     .pipe(chmod(644))
-    .pipe(gulp.dest("api"));
+    .pipe(gulp.dest("lib/api"));
 });
 
 /**
