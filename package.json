@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "http-server /home/node/app/lib/ -c1 -o --cors -p 3000",
+    "start": "http-server lib/ -c1 -o --cors -p 3000",
     "build": "gulp",
     "test": "node tests/test.js"
   },
