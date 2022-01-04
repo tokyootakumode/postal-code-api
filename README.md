@@ -1,7 +1,5 @@
 # 郵便番号 API
 
-[![Build Status](https://travis-ci.org/madefor/postal-code-api.svg?branch=master)](https://travis-ci.org/madefor/postal-code-api)
-
 この郵便番号 API は GitHub ページを使用して静的なファイルで配信しているため信頼性が高く、さらにオープンソースなのでクライアントワークでも安心して使用できます。
 
 また、郵便番号から英語の住所を取得することも可能です。（大口事業所個別番号は英語には対応していません。）
@@ -10,19 +8,19 @@
 
 ## デモ
 
-https://madefor.github.io/postal-code-api/
+https://postal-code-api.otakumode.com/
 
 ## エンドポイント
 
 ```
-https://madefor.github.io/postal-code-api/api/v1/
+https://postal-code-api.otakumode.com/api/v1/
 ```
 
 ## 使い方
 
 郵便番号が`100-0014`(東京都千代田区永田町)の住所を取得したい場合。
 
-https://madefor.github.io/postal-code-api/api/v1/100/0014.json
+https://postal-code-api.otakumode.com/api/v1/100/0014.json
 
 ```json
 {
@@ -191,7 +189,7 @@ https://madefor.github.io/postal-code-api/api/v1/100/8798.json
 このリポジトリを clone してください。
 
 ```
-$ git@github.com:madefor/postal-code-api.git
+$ git clone git@github.com:tokyootakumode/postal-code-api.git
 ```
 
 必要なモジュールをインストールしてください。
@@ -229,7 +227,7 @@ docker-compose build --no-cache
 
 ## 貢献
 
-- バグレポートは[Issue](https://github.com/madefor/postal-code-api/issues)にお願いします。
+- バグレポートは[Issue](https://github.com/tokyootakumode/postal-code-api/issues)にお願いします。
 - プルリクエストは大歓迎です。
 - Star をつけてもらうと開発者たちのモチベーションが上がります。
 
