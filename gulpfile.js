@@ -11,8 +11,8 @@ const v1 = require("./lib/v1.js");
 
 gulp.task("download", () => {
   const urls = [
-    "http://www.post.japanpost.jp/zipcode/dl/roman/ken_all_rome.zip",
-    "http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip",
+    "https://www.post.japanpost.jp/zipcode/dl/roman/KEN_ALL_ROME.zip",
+    "https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip",
   ];
   return download(urls)
     .pipe(decompress())
