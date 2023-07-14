@@ -28,7 +28,7 @@ gulp.task(
   "v1",
   gulp.series("download", () => {
     return gulp
-      .src("lib/api/KEN_ALL_ROME.csv")
+      .src("lib/api/KEN_ALL_ROME.CSV")
       .pipe(postal2json())
       .pipe(v1())
       .pipe(chmod(644))
