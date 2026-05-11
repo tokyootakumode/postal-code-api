@@ -11,8 +11,8 @@ const v1 = require("./lib/v1.js");
 
 gulp.task("download", () => {
   const urls = [
-    "https://www.post.japanpost.jp/zipcode/dl/roman/KEN_ALL_ROME.zip",
-    "https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip",
+    "https://www.post.japanpost.jp/service/search/zipcode/download/roman/KEN_ALL_ROME.zip",
+    "https://www.post.japanpost.jp/service/search/zipcode/download/office/zip/jigyosyo.zip",
   ];
   return download(urls)
     .pipe(decompress())
@@ -33,7 +33,7 @@ gulp.task(
       .pipe(v1())
       .pipe(chmod(644))
       .pipe(gulp.dest("lib/api/v1"));
-  })
+  }),
 );
 
 /**
@@ -48,7 +48,7 @@ gulp.task(
       .pipe(v1())
       .pipe(chmod(644))
       .pipe(gulp.dest("lib/api/v1"));
-  })
+  }),
 );
 
 gulp.task("default", gulp.series(["v1", "v1-jigyosyo"]));
