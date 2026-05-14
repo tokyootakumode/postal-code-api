@@ -1,4 +1,4 @@
-FROM node:16.13-buster-slim
+FROM node:24.15-slim
 
 WORKDIR /home/node/app
 COPY lib lib
